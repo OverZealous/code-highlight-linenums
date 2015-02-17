@@ -57,7 +57,7 @@
 			// Browser globals (root is window)
 			root.codeHighlightLinenums = factory();
 		}
-	}(this, function() {
+	}(function() {
 		/**
 		 * Just return a value to define the module export.
 		 * This example returns an object, but the module
