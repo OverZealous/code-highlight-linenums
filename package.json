@@ -2,7 +2,7 @@
   "name": "code-highlight-linenums",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "code-highlight-linenums.js",
   "scripts": {
     "test": "mocha --reporter spec"
   },

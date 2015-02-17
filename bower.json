@@ -1,6 +1,6 @@
 {
   "name": "code-highlight-linenums",
-  "main": "index.js",
+  "main": "code-highlight-linenums.js",
   "version": "0.1.0",
   "authors": [
     "Phil DeJarnett <phil@overzealous.com>"
