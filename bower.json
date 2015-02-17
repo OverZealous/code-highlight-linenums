@@ -1,0 +1,16 @@
+{
+  "name": "code-highlight-linenums",
+  "main": "index.js",
+  "version": "0.0.1",
+  "authors": [
+    "Phil DeJarnett <phil@overzealous.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
