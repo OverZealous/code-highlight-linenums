@@ -92,4 +92,18 @@ describe('code-highlight-linenums', function() {
 
 		output.should.eql(expected);
 	});
+
+	it("should handle clojure", function() {
+		var output = codeHighlightLinenums(loadFixture('clojure-test.clj'), { lang: 'clojure', hljs: hljs }),
+			expected = loadFixture('clojure-test.html');
+
+		output.should.eql(expected);
+	});
+
+	it("should handle clojure with linenums", function() {
+		var output = codeHighlightLinenums(loadFixture('clojure-test.clj'), { lang: 'clojure:1', hljs: hljs }),
+			expected = loadFixture('clojure-test-linenums.html');
+
+		output.should.eql(expected);
+	});
 });

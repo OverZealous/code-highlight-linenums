@@ -24,10 +24,7 @@
 			code = code.replace(/([\r\n]\s*)(<\/span>)/ig, '$2$1');
 
 			// replace spans with line-wraps inside them
-			var wrappedSpan = /(<span[^>]*>)([^<]*?[\r\n][^<]*)(<\/span>)/ig;
-			code = code.replace(wrappedSpan, function(m, start, contents, end) {
-				return start + contents.replace(/(\r\n|\r|\n)/g, end + '$1' + start) + end;
-			});
+			code = cleanLineBreaks(code);
 
 			code = code.split(/\r\n|\r|\n/);
 			var max = (start + code.length).toString().length;
@@ -40,6 +37,32 @@
 		}
 
 		return code;
+	}
+
+	// Simplified parser that looks for opening & closing spans, and walks the tree.
+	// If there are any unclosed spans when a newline is encountered, we close them on the previous line,
+	// and copy them forward to the next line.
+	function cleanLineBreaks(code) {
+		var openSpans = [],
+			matcher = /<\/?span[^>]*>|\r\n|\r|\n/ig,
+			newline = /\r\n|\r|\n/,
+			closingTag = /^<\//;
+
+		return code.replace(matcher, function(match) {
+			if(newline.test(match)) {
+				if(openSpans.length) {
+					return openSpans.map(function() { return '</span>' }).join('') + match + openSpans.join('');
+				} else {
+					return match;
+				}
+			} else if(closingTag.test(match)) {
+				openSpans.pop();
+				return match;
+			} else {
+				openSpans.push(match);
+				return match;
+			}
+		});
 	}
 
 	(function(factory) {
