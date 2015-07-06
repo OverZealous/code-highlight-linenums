@@ -19,7 +19,7 @@
   "devDependencies": {
     "mocha": "^2.1.0",
     "should": "^5.0.0",
-    "highlightjs": "^8.4.0"
+    "highlight.js": "^8.4.0"
   },
   "directories": {
     "test": "test"
