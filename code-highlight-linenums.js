@@ -14,9 +14,13 @@
 		} else {
 			start = +start;
 		}
-
-		if(lang && hljs) {
-			code = hljs.highlight(lang, code).value;
+		
+		if(hljs) {
+			if(lang) {
+				code = hljs.highlight(lang, code).value;
+			} else {
+				code = hljs.highlightAuto(code).value;
+			}
 		}
 
 		if(start) {
