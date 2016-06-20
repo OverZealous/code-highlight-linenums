@@ -11,17 +11,18 @@ _Note: I'm using ES6 code here to make it easier to see multiline strings._
 ```js
 const codeHighlightLinenums = require('code-highlight-linenums');
 
-let code = `class Foo
+let code = 
+`class Foo
 {
     Foo() {
 
     }
     static int bar = 2;
-}`
+}`;
 
-let formattedCode = codeHighlightLinnums(code, {
+let formattedCode = codeHighlightLinenums(code, {
         hljs: window.hljs, // pass in your copy of highlight.js
-        lang: 'java', // pass in the language
+        lang: 'java', // pass in the language (optional: uses highlight's auto feature if not provided)
         start: 1, // pass in the starting line number, this is required!
     });
     
